@@ -1,0 +1,89 @@
+/* Shared look for the loading, error and empty messages */
+.state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-8) 0;
+  text-align: center;
+}
+
+.title {
+  font-size: 36px;
+}
+
+.message {
+  max-width: 420px;
+  color: var(--color-muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.button,
+.buttonSecondary {
+  padding: 12px 28px;
+  border-radius: var(--radius-pill);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button {
+  border: 1px solid var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-on-ink);
+}
+
+.buttonSecondary {
+  border: 1px solid var(--color-border-strong);
+  background: transparent;
+}
+
+.buttonSecondary:hover {
+  border-color: var(--color-ink);
+}
+
+/* Three dots that fade in and out while loading */
+.dots {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  animation: fade 1s ease-in-out infinite;
+}
+
+.dots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dots span {
+    animation: none;
+    opacity: 0.6;
+  }
+}

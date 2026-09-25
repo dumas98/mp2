@@ -1,0 +1,20 @@
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-7) var(--gutter);
+}
+
+@media (max-width: 760px) {
+  .main {
+    padding-top: var(--space-5);
+    padding-bottom: var(--space-5);
+  }
+}
