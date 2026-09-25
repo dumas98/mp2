@@ -5,11 +5,14 @@ import 'normalize.css'
 import './styles/tokens.css'
 import './styles/global.css'
 import App from './App.tsx'
+import { ProductsProvider } from './context/ProductsProvider.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <App />
+      <ProductsProvider>
+        <App />
+      </ProductsProvider>
     </BrowserRouter>
   </StrictMode>,
 )
