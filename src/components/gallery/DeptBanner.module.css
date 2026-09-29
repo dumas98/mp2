@@ -45,38 +45,6 @@
   font-size: 14px;
 }
 
-/* Three overlapping cutouts; multiply blends their white backgrounds into the tile */
-.collage {
-  position: relative;
-  height: 240px;
-}
-
-.collage img {
-  position: absolute;
-  height: auto;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
-  mix-blend-mode: multiply;
-}
-
-.center {
-  top: 0;
-  left: 22%;
-  width: 58%;
-}
-
-.left {
-  bottom: 2%;
-  left: 0;
-  width: 44%;
-}
-
-.right {
-  right: 0;
-  bottom: 0;
-  width: 42%;
-}
-
 @media (max-width: 760px) {
   .banner {
     grid-template-columns: minmax(0, 1fr);
@@ -90,12 +58,5 @@
 
   .value {
     font-size: 30px;
-  }
-
-  .collage {
-    width: 100%;
-    max-width: 300px;
-    height: 180px;
-    margin: 0 auto;
   }
 }

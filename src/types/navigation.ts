@@ -5,4 +5,6 @@ export interface BrowseState {
   ids: number[]
   // URL of that list, including its search and filters, for "Back to results"
   from: string
+  // Wording of the back link, e.g. "Back to deals"; "Back to results" if left out
+  label?: string
 }

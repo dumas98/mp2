@@ -1,0 +1,62 @@
+.collage {
+  position: relative;
+  width: 100%;
+}
+
+.banner {
+  height: 240px;
+}
+
+.tile {
+  aspect-ratio: 1 / 1;
+}
+
+/* multiply blends the photos' white backgrounds into the tile behind them */
+.collage img {
+  position: absolute;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.center {
+  top: 0;
+  left: 22%;
+  width: 58%;
+}
+
+.left {
+  bottom: 2%;
+  left: 0;
+  width: 44%;
+}
+
+.right {
+  right: 0;
+  bottom: 0;
+  width: 42%;
+}
+
+/* In a square tile the images sit a little lower and further apart */
+.tile .center {
+  top: 8%;
+}
+
+.tile .left {
+  bottom: 12%;
+  left: 4%;
+}
+
+.tile .right {
+  right: 4%;
+  bottom: 8%;
+}
+
+@media (max-width: 760px) {
+  .banner {
+    max-width: 300px;
+    height: 180px;
+    margin: 0 auto;
+  }
+}

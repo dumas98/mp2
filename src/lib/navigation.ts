@@ -7,12 +7,13 @@ import { sortProducts } from './sorting.ts'
 // and drop IDs of products that don't exist. Returns null if it isn't usable.
 export function readBrowseState(state: unknown, products: Product[]): BrowseState | null {
   if (typeof state !== 'object' || state === null) return null
-  const { ids, from } = state as Record<string, unknown>
+  const { ids, from, label } = state as Record<string, unknown>
   if (!Array.isArray(ids) || typeof from !== 'string' || !from.startsWith('/')) return null
 
   const known = new Set(products.map((p) => p.id))
   const validIds = ids.filter((id): id is number => typeof id === 'number' && known.has(id))
-  return validIds.length > 0 ? { ids: validIds, from } : null
+  if (validIds.length === 0) return null
+  return typeof label === 'string' ? { ids: validIds, from, label } : { ids: validIds, from }
 }
 
 // Used when a product is opened without a list (typed URL, bookmark):

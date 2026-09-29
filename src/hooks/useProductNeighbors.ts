@@ -43,7 +43,7 @@ export function useProductNeighbors(product: Product): ProductNeighbors {
       linkState,
       backTo: linkState.from,
       backLabel: fromList
-        ? 'Back to results'
+        ? (fromList.label ?? 'Back to results')
         : `Back to ${departmentOf(product.category)?.name ?? 'all products'}`,
     }
   }, [location.state, products, product])
