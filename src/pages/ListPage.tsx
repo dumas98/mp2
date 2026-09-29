@@ -8,6 +8,7 @@ import { ResultCount } from '../components/list/ResultCount.tsx'
 import { SearchInput } from '../components/list/SearchInput.tsx'
 import { SortControls } from '../components/list/SortControls.tsx'
 import { ProductRow } from '../components/product/ProductRow.tsx'
+import { useDocumentTitle } from '../hooks/useDocumentTitle.ts'
 import { useFilterParams } from '../hooks/useFilterParams.ts'
 import { useProducts } from '../hooks/useProducts.ts'
 import { toSearchParams } from '../lib/filterParams.ts'
@@ -27,6 +28,7 @@ export function ListPage() {
   const { products } = useProducts()
   const { filters, sort, order, activeCount } = useFilterParams()
   const location = useLocation()
+  useDocumentTitle('All products')
 
   const results = useMemo(
     () => sortProducts(applyFilters(products, filters), sort, order),

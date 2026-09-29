@@ -1,0 +1,151 @@
+/* The wrapper positions the suggestions panel; the bar clips its rounded ends */
+.wrapper {
+  position: relative;
+}
+
+.bar {
+  display: flex;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+/* The input has no outline of its own, so the whole bar shows focus */
+.bar:focus-within {
+  box-shadow: 0 0 0 2px var(--color-accent);
+}
+
+.select {
+  padding: 0 var(--space-3) 0 var(--space-4);
+  border: 0;
+  background: var(--color-border);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  padding: 0 var(--space-4);
+  border: 0;
+  background: transparent;
+  font-size: 15px;
+  outline: none;
+}
+
+.input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  border: 0;
+  background: var(--color-ink);
+  color: var(--color-on-ink);
+  cursor: pointer;
+}
+
+.panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  left: 0;
+  z-index: 20;
+  max-height: 70vh;
+  padding: 6px;
+  overflow-y: auto;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-card);
+  background: var(--color-bg);
+  box-shadow: 0 16px 40px rgb(0 0 0 / 12%);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.option {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  gap: var(--space-3);
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.active {
+  background: var(--color-surface);
+}
+
+.thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: var(--color-tile);
+}
+
+.thumb img {
+  width: 88%;
+  height: 88%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.name {
+  overflow: hidden;
+  font-size: 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.name mark {
+  background: none;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.meta {
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+.seeAll {
+  display: block;
+  margin-top: 4px;
+  padding: 12px 10px;
+  border-top: 1px solid var(--color-border);
+  border-radius: 0 0 10px 10px;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.empty {
+  padding: var(--space-4);
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+/* The department dropdown is too wide for a phone; all departments is the default */
+@media (max-width: 760px) {
+  .select {
+    display: none;
+  }
+}

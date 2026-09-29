@@ -1,4 +1,6 @@
 .header {
+  position: relative;
+  z-index: 10;
   background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
 }
@@ -19,47 +21,10 @@
   line-height: 1;
 }
 
+/* Where the search sits in the header; its own look is in SearchBar.module.css */
 .search {
   flex: 1;
-  display: flex;
-  height: 44px;
-  background: var(--color-surface);
-  border-radius: var(--radius-pill);
-  overflow: hidden;
-}
-
-/* The input has no outline of its own, so the whole bar shows focus */
-.search:focus-within {
-  box-shadow: 0 0 0 2px var(--color-accent);
-}
-
-.select {
-  border: 0;
-  background: var(--color-border);
-  padding: 0 var(--space-3) 0 var(--space-4);
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.input {
-  flex: 1;
   min-width: 0;
-  border: 0;
-  background: transparent;
-  padding: 0 var(--space-4);
-  font-size: 15px;
-  outline: none;
-}
-
-.button {
-  width: 52px;
-  border: 0;
-  background: var(--color-ink);
-  color: var(--color-on-ink);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
 }
 
 .cart {
@@ -77,11 +42,6 @@
   .search {
     order: 3;
     flex-basis: 100%;
-  }
-
-  /* Too wide for a phone; searching all departments is the default anyway */
-  .select {
-    display: none;
   }
 
   .cart {

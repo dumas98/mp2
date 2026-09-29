@@ -1,0 +1,29 @@
+.tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.image {
+  padding: var(--space-5);
+  border-radius: var(--radius-card);
+  background: var(--color-tile);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.tile:hover .image {
+  transform: translateY(-4px);
+}
+
+.caption {
+  color: var(--color-sale);
+  font-size: 17px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.tile:hover .caption {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}

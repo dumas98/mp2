@@ -1,15 +1,39 @@
+import { useMemo } from 'react'
+import { Link } from 'react-router-dom'
+import { DealsRow } from '../components/landing/DealsRow.tsx'
+import { OfferTile } from '../components/landing/OfferTile.tsx'
+import { useDocumentTitle } from '../hooks/useDocumentTitle.ts'
 import { useProducts } from '../hooks/useProducts.ts'
-import styles from './Placeholder.module.css'
+import { buildOffers } from '../lib/offers.ts'
+import { biggestDiscounts } from '../lib/stats.ts'
+import styles from './LandingPage.module.css'
 
-// Placeholder until step 5 (offers, deals and the "Browse all" button)
 export function LandingPage() {
-  const { products, usedFallback } = useProducts()
+  const { products } = useProducts()
+  useDocumentTitle()
+
+  const offers = useMemo(() => buildOffers(products), [products])
+  const deals = useMemo(() => biggestDiscounts(products, 5), [products])
 
   return (
-    <section>
-      <h1 className={styles.title}>Limited time offers</h1>
-      <p className={styles.lead}>{products.length} products loaded.</p>
-      <p className={styles.note}>Source: {usedFallback ? 'saved copy' : 'DummyJSON'}</p>
-    </section>
+    <div className={styles.page}>
+      <section className={styles.offers} aria-labelledby="offers-heading">
+        <h1 id="offers-heading" className={styles.title}>
+          Limited time offers
+        </h1>
+        <ul className={styles.offerGrid}>
+          {offers.map((offer) => (
+            <li key={offer.key} className={styles.offerItem}>
+              <OfferTile offer={offer} />
+            </li>
+          ))}
+        </ul>
+        <Link to="/all" className={styles.browseAll}>
+          Browse all {products.length} products <span aria-hidden="true">→</span>
+        </Link>
+      </section>
+
+      <DealsRow products={deals} />
+    </div>
   )
 }
