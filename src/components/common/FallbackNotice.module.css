@@ -1,0 +1,18 @@
+.notice {
+  padding: var(--space-2) var(--gutter);
+  background: var(--color-warning-soft);
+  color: var(--color-warning);
+  font-size: 14px;
+  text-align: center;
+}
+
+.retry {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}

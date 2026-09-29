@@ -33,7 +33,10 @@ export function DeptBanner({ title, description, stats, collage }: DeptBannerPro
         </ul>
       </div>
 
-      <Collage products={collage} size="banner" />
+      {/* Hidden on phones: the grid right below already shows the products */}
+      <div className={styles.collage}>
+        <Collage products={collage} size="banner" />
+      </div>
     </section>
   )
 }

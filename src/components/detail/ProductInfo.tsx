@@ -9,7 +9,8 @@ import styles from './ProductInfo.module.css'
 // A button rather than an <a href="#reviews">: a hash link would create a new
 // history entry without the list the shopper came from, breaking previous / next.
 function scrollToReviews() {
-  document.getElementById('reviews')?.scrollIntoView({ behavior: 'smooth' })
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  document.getElementById('reviews')?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' })
 }
 
 export function ProductInfo({ product }: { product: Product }) {

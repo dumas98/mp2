@@ -52,11 +52,3 @@
   right: 4%;
   bottom: 8%;
 }
-
-@media (max-width: 760px) {
-  .banner {
-    max-width: 300px;
-    height: 180px;
-    margin: 0 auto;
-  }
-}

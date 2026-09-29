@@ -8,7 +8,13 @@ import styles from './PromoBanner.module.css'
 const ROTATE_EVERY_MS = 6000
 
 // Shown while the products load, so the bar doesn't jump in later
-const LOADING_PROMO: Promo = { key: 'loading', text: 'Limited time offers across the store', linkText: 'See the sale', to: '/sale' }
+const LOADING_PROMO: Promo = {
+  key: 'loading',
+  text: 'Limited time offers across the store',
+  shortText: 'Limited time offers',
+  linkText: 'See the sale',
+  to: '/sale',
+}
 
 // Rotating deals at the top of every page, built from the product data.
 // It pauses while hovered or focused, and never rotates on its own for
@@ -52,7 +58,9 @@ export function PromoBanner() {
 
       {/* Announced only while the visitor is interacting, not on every automatic change */}
       <p className={styles.message} aria-live={paused ? 'polite' : 'off'}>
-        {promo.text} ·{' '}
+        {/* Only one of the two is displayed, depending on screen width */}
+        <span className={styles.full}>{promo.text}</span>
+        <span className={styles.short}>{promo.shortText}</span> ·{' '}
         <Link to={promo.to} className={styles.link}>
           {promo.linkText}
         </Link>

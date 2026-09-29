@@ -56,7 +56,19 @@
     font-size: 42px;
   }
 
+  /* Compact on phones: stats in a 2 × 2 grid, no collage */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-3) var(--space-4);
+    margin-top: var(--space-4);
+  }
+
   .value {
-    font-size: 30px;
+    font-size: 26px;
+  }
+
+  .collage {
+    display: none;
   }
 }

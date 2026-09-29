@@ -39,6 +39,8 @@ export function buildOffers(products: Product[]): Offer[] {
 export interface Promo {
   key: string
   text: string
+  // Fits on one line on a phone
+  shortText: string
   linkText: string
   to: string
 }
@@ -52,6 +54,7 @@ export function buildPromos(products: Product[]): Promo[] {
     ...offers.slice(0, 2).map((offer) => ({
       key: offer.key,
       text: `${offer.label} up to ${offer.maxDiscount}% off this week`,
+      shortText: `${offer.label} up to ${offer.maxDiscount}% off`,
       linkText: 'Shop now',
       to: offer.to,
     })),
@@ -60,6 +63,7 @@ export function buildPromos(products: Product[]): Promo[] {
           {
             key: 'sale',
             text: `${saleCount} products at ${SALE_THRESHOLD}% off or more`,
+            shortText: `${saleCount} products on sale`,
             linkText: 'See the sale',
             to: '/sale',
           },
