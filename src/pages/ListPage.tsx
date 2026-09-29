@@ -14,6 +14,7 @@ import { toSearchParams } from '../lib/filterParams.ts'
 import { applyFilters, EMPTY_FILTERS } from '../lib/filtering.ts'
 import { sortProducts } from '../lib/sorting.ts'
 import type { BrowseState } from '../types/navigation.ts'
+import browse from './BrowsePage.module.css'
 import styles from './ListPage.module.css'
 
 function withParams(path: string, params: URLSearchParams): string {
@@ -51,18 +52,18 @@ export function ListPage() {
   return (
     <div>
       <Breadcrumb items={[{ label: 'Home', to: '/' }, { label: 'All products' }]} />
-      <h1 className={styles.title}>All products</h1>
+      <h1 className={browse.title}>All products</h1>
 
-      <div className={styles.layout}>
+      <div className={browse.layout}>
         <FilterSidebar products={products} showDepartment />
 
-        <section className={styles.results} aria-labelledby="results-heading">
+        <section className={browse.results} aria-labelledby="results-heading">
           <h2 id="results-heading" className="visually-hidden">
             Results
           </h2>
           <SearchInput placeholder={`Search ${products.length} products`} />
 
-          <div className={styles.toolbar}>
+          <div className={browse.toolbar}>
             <ResultCount count={results.length} query={filters.query} />
             <SortControls />
           </div>
