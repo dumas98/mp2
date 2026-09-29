@@ -38,11 +38,12 @@ export function ProductCard({ product, browseState }: ProductCardProps) {
       <div className={styles.body}>
         <h3 className={styles.title}>{product.title}</h3>
         <p className={styles.meta}>{meta}</p>
+        <StockBadge status={product.availabilityStatus} />
+        {/* Pinned to the bottom so prices line up across a row */}
         <div className={styles.footer}>
           <Price product={product} />
           <Rating value={product.rating} />
         </div>
-        <StockBadge status={product.availabilityStatus} />
       </div>
     </Link>
   )

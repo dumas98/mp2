@@ -64,6 +64,8 @@
     align-self: stretch;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    /* Snap cards to the page margin, not to the screen edge */
+    scroll-padding-inline: var(--gutter);
     scrollbar-width: none;
   }
 
