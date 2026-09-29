@@ -1,0 +1,96 @@
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.brand {
+  margin-bottom: var(--space-2);
+  color: var(--color-muted);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: 46px;
+  line-height: 1.05;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 15px;
+}
+
+.reviewsLink {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-muted);
+  font-size: 15px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.reviewsLink:hover {
+  color: var(--color-text);
+}
+
+.price {
+  margin-top: var(--space-1);
+}
+
+.description {
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* Definition list laid out with CSS grid (no table) */
+.details {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: var(--space-2) var(--space-5);
+  margin: 0;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  font-size: 15px;
+}
+
+.details dt {
+  color: var(--color-muted);
+}
+
+.details dd {
+  margin: 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag {
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+.tag::first-letter {
+  text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+  .title {
+    font-size: 36px;
+  }
+}

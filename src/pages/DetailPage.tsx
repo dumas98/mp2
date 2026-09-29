@@ -1,16 +1,16 @@
 import { useParams } from 'react-router-dom'
-import { StockStatus } from '../components/detail/StockStatus.tsx'
-import { Stars } from '../components/product/Stars.tsx'
-import { categoryLabel } from '../data/departments.ts'
+import { ImageGallery } from '../components/detail/ImageGallery.tsx'
+import { NeighborCards } from '../components/detail/NeighborCards.tsx'
+import { PrevNextNav } from '../components/detail/PrevNextNav.tsx'
+import { ProductInfo } from '../components/detail/ProductInfo.tsx'
+import { ReviewList } from '../components/detail/ReviewList.tsx'
+import { useDocumentTitle } from '../hooks/useDocumentTitle.ts'
 import { useProductNeighbors } from '../hooks/useProductNeighbors.ts'
 import { useProducts } from '../hooks/useProducts.ts'
-import { formatPrice } from '../lib/format.ts'
-import { displayPrice } from '../lib/pricing.ts'
 import type { Product } from '../types/product.ts'
+import styles from './DetailPage.module.css'
 import { NotFoundPage } from './NotFoundPage.tsx'
-import styles from './Placeholder.module.css'
 
-// Placeholder until step 3.7 (images, details, reviews and previous/next)
 export function DetailPage() {
   const { id } = useParams()
   const { products } = useProducts()
@@ -25,25 +25,25 @@ export function DetailPage() {
     )
   }
 
-  return <DetailPlaceholder product={product} />
+  return <ProductDetail product={product} />
 }
 
-function DetailPlaceholder({ product }: { product: Product }) {
+// Split out so the hooks below only run once the product exists
+function ProductDetail({ product }: { product: Product }) {
   const neighbors = useProductNeighbors(product)
+  useDocumentTitle(product.title)
 
   return (
-    <section>
-      <h1 className={styles.title}>{product.title}</h1>
-      <p className={styles.lead}>{formatPrice(displayPrice(product))}</p>
-      <p className={styles.note}>{categoryLabel(product.category)}</p>
-      <p className={styles.note}>
-        <Stars value={product.rating} /> {product.rating}
-      </p>
-      <StockStatus product={product} />
-      <p className={styles.note} data-testid="neighbors">
-        {neighbors.position} of {neighbors.total} · previous: {neighbors.previous.title} · next:{' '}
-        {neighbors.next.title} · {neighbors.backLabel} → {neighbors.backTo}
-      </p>
-    </section>
+    <article className={styles.page}>
+      <PrevNextNav neighbors={neighbors} />
+
+      <div className={styles.columns}>
+        <ImageGallery key={product.id} product={product} />
+        <ProductInfo product={product} />
+      </div>
+
+      <ReviewList product={product} />
+      <NeighborCards neighbors={neighbors} />
+    </article>
   )
 }

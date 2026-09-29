@@ -1,0 +1,65 @@
+.bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.back {
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.back:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 38px;
+  padding: 0 16px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.button:hover {
+  border-color: var(--color-ink);
+}
+
+.position {
+  min-width: 64px;
+  color: var(--color-muted);
+  font-size: 14px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* On phones the arrows alone fit next to the back link */
+@media (max-width: 760px) {
+  .word {
+    display: none;
+  }
+
+  .button {
+    width: 38px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .position {
+    min-width: 0;
+  }
+}

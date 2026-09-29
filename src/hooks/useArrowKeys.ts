@@ -6,8 +6,8 @@ export function useArrowKeys(onLeft: () => void, onRight: () => void) {
   useEffect(() => {
     function handleKey(event: KeyboardEvent) {
       if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return
-      const target = event.target as HTMLElement | null
-      if (target?.closest('input, textarea, select, [contenteditable="true"]')) return
+      const target = event.target
+      if (target instanceof Element && target.closest('input, textarea, select, [contenteditable="true"]')) return
 
       if (event.key === 'ArrowLeft') onLeft()
       else if (event.key === 'ArrowRight') onRight()
