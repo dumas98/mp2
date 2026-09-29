@@ -14,11 +14,13 @@ interface FilterSidebarProps {
   products: Product[]
   // The Department group only makes sense when several departments are shown
   showDepartment: boolean
+  // The Sale page hides "On sale": everything there is on sale already
+  showSaleFilter?: boolean
 }
 
 // Shared by the list and gallery pages. Reads and writes the filters in the
 // URL. On phones it folds into a "Filters (2)" button above the results.
-export function FilterSidebar({ products, showDepartment }: FilterSidebarProps) {
+export function FilterSidebar({ products, showDepartment, showSaleFilter = true }: FilterSidebarProps) {
   const { filters, activeCount, toggle, setMinRating, setOnSale } = useFilterParams()
   const [openOnPhone, setOpenOnPhone] = useState(false)
   const panelId = useId()
@@ -139,16 +141,18 @@ export function FilterSidebar({ products, showDepartment }: FilterSidebarProps) 
           ))}
         </FilterGroup>
 
-        <FilterGroup title="Deals">
-          <FilterOption
-            type="checkbox"
-            name="sale"
-            label="On sale"
-            count={counts.onSale}
-            checked={filters.onSale}
-            onChange={() => setOnSale(!filters.onSale)}
-          />
-        </FilterGroup>
+        {showSaleFilter && (
+          <FilterGroup title="Deals">
+            <FilterOption
+              type="checkbox"
+              name="sale"
+              label="On sale"
+              count={counts.onSale}
+              checked={filters.onSale}
+              onChange={() => setOnSale(!filters.onSale)}
+            />
+          </FilterGroup>
+        )}
       </div>
     </aside>
   )
