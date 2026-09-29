@@ -1,0 +1,9 @@
+.count {
+  color: var(--color-muted);
+  font-size: 15px;
+}
+
+.number {
+  color: var(--color-text);
+  font-weight: 600;
+}

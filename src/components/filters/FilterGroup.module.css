@@ -1,0 +1,55 @@
+.group {
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-3) 0;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.summary::after {
+  content: '+';
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+.group[open] > .summary::after {
+  content: '−';
+}
+
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: var(--space-2) 0 0;
+  border: 0;
+  min-width: 0;
+}
+
+.more {
+  align-self: flex-start;
+  margin-top: var(--space-1);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-accent);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.more:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

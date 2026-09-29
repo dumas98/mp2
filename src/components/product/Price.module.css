@@ -1,0 +1,33 @@
+.price {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.current {
+  font-weight: 600;
+}
+
+.sale {
+  color: var(--color-sale);
+}
+
+.original {
+  color: var(--color-muted);
+  font-size: 0.85em;
+}
+
+.badge {
+  align-self: center;
+  padding: 2px 6px;
+  border-radius: var(--radius-badge);
+  background: var(--color-sale);
+  color: var(--color-on-ink);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.large .current {
+  font-size: 28px;
+}

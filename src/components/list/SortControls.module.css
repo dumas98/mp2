@@ -1,0 +1,49 @@
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.label {
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.select,
+.order {
+  height: 38px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-bg);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.select:hover,
+.order:hover {
+  border-color: var(--color-ink);
+}
+
+/* Custom arrow so the dropdown matches the pill buttons */
+.select {
+  padding: 0 34px 0 14px;
+  font-weight: 600;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23151714' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 13px center;
+}
+
+.order {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 14px;
+  font-weight: 600;
+}
+
+.hint {
+  color: var(--color-muted);
+  font-weight: 400;
+}

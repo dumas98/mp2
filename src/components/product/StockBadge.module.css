@@ -1,0 +1,18 @@
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.low {
+  background: var(--color-warning-soft);
+  color: var(--color-warning);
+}
+
+.out {
+  background: var(--color-surface);
+  color: var(--color-muted);
+}

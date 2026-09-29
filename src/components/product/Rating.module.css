@@ -1,0 +1,8 @@
+.rating {
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.star {
+  color: var(--color-accent);
+}
