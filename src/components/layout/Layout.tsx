@@ -6,6 +6,7 @@ import { DeptNav } from './DeptNav.tsx'
 import { Footer } from './Footer.tsx'
 import { Header } from './Header.tsx'
 import { PromoBanner } from './PromoBanner.tsx'
+import { ScrollToTop } from './ScrollToTop.tsx'
 import styles from './Layout.module.css'
 
 // Shared frame for every page. Pages only render once the products are
@@ -15,6 +16,7 @@ export function Layout() {
 
   return (
     <div className={styles.shell}>
+      <ScrollToTop />
       <PromoBanner />
       <Header>
         <DeptNav />

@@ -1,0 +1,26 @@
+.stars {
+  font-size: 18px;
+  letter-spacing: 1px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.small {
+  font-size: 14px;
+}
+
+.full {
+  color: var(--color-accent);
+}
+
+.empty {
+  color: var(--color-border-strong);
+}
+
+/* Left half in the accent color, right half empty */
+.half {
+  background: linear-gradient(90deg, var(--color-accent) 50%, var(--color-border-strong) 50%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
